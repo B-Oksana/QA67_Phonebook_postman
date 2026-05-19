@@ -702,6 +702,18 @@
 								"url": "{{BaseURI}}/v1/contacts"
 							},
 							"response": []
+						},
+						{
+							"name": "New Request",
+							"id": "0dfaccf2-59cc-4352-8892-069ac772847f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
 						}
 					],
 					"id": "f20acd1b-7ddf-42e2-9143-d23b0477c3d0",
