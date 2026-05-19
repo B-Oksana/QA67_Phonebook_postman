@@ -389,7 +389,7 @@
 										"id": "5977339d-8645-4018-99c9-ef0eed867cd1",
 										"exec": [
 											"pm.sendRequest({\r",
-											"    url: pm.environment.get(\"BaseURI\") + \"/v1/contacts\",\r",
+											"    url: pm.environment.get(\"BaseURI\") + \"/v1/contacts/\",\r",
 											"    method: \"GET\",\r",
 											"    header: {\"Authorization\": pm.environment.get(\"token\")}\r",
 											"},\r",
@@ -402,7 +402,9 @@
 											"            let contactId = data.contacts[0].id;\r",
 											"            pm.environment.set(\"id\", contactId);\r",
 											"            console.log(\"Contact was added: \", contactId);\r",
-											"        } else\r",
+											"        } else {\r",
+											"            console.warn(\"Contacts are missing in the response\");\r",
+											"        }\r",
 											"    }\r",
 											"}\r",
 											")"
