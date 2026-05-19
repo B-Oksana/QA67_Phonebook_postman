@@ -704,14 +704,102 @@
 							"response": []
 						},
 						{
-							"name": "New Request",
+							"name": "DeleteContactByIdWithFormatError",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1f4aceb3-604e-4e07-88f0-5ccbc7e0c602",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5977339d-8645-4018-99c9-ef0eed867cd1",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "f45389ec-6cf7-4e86-8058-4f7ef561dc16",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BaseURI}}/v1/contacts/"
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteContactById_Unauthorized",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bec23e84-10e1-4ed3-ab4a-2c591e846212",
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"Body matches string: Unauthorized\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Unauthorized\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "f5c1c9f7-83c2-4a3b-8a21-9d97cffe491d",
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "0dfaccf2-59cc-4352-8892-069ac772847f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
-								"header": []
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTR",
+										"type": "text"
+									}
+								],
+								"url": "{{BaseURI}}/v1/contacts/{id}"
 							},
 							"response": []
 						}
