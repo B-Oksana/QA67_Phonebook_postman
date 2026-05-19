@@ -398,7 +398,11 @@
 											"        console.log(\"Error while requesting contacts: \", err)\r",
 											"    } else {\r",
 											"        let data = res.json();\r",
-											"        if(data.contacts && data.contacts.len)\r",
+											"        if(data.contacts && data.contacts.length>0) {\r",
+											"            let contactId = data.contacts[0].id;\r",
+											"            pm.environment.set(\"id\", contactId);\r",
+											"            console.log(\"Contact was added: \", contactId);\r",
+											"        } else\r",
 											"    }\r",
 											"}\r",
 											")"
