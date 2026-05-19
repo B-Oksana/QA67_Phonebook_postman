@@ -704,60 +704,6 @@
 							"response": []
 						},
 						{
-							"name": "DeleteContactByIdWithFormatError",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "1f4aceb3-604e-4e07-88f0-5ccbc7e0c602",
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {},
-										"requests": {}
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "5977339d-8645-4018-99c9-ef0eed867cd1",
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {},
-										"requests": {}
-									}
-								}
-							],
-							"id": "f45389ec-6cf7-4e86-8058-4f7ef561dc16",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{BaseURI}}/v1/contacts/"
-							},
-							"response": []
-						},
-						{
 							"name": "DeleteContactById_Unauthorized",
 							"event": [
 								{
