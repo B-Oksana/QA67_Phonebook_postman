@@ -864,7 +864,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiX",
 										"type": "text"
 									}
 								],
