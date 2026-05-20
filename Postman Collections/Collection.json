@@ -830,11 +830,11 @@
 									"script": {
 										"id": "bec23e84-10e1-4ed3-ab4a-2c591e846212",
 										"exec": [
-											"pm.test(\"Status code is 400\", function () {\r",
-											"    pm.response.to.have.status(400);\r",
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
 											"});\r",
-											"pm.test(\"Body matches string: Bad Request \", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Bad Request\");\r",
+											"pm.test(\"Body matches string: Not Found\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Not Found\");\r",
 											"});"
 										],
 										"type": "text/javascript",
@@ -868,7 +868,7 @@
 										"type": "text"
 									}
 								],
-								"url": "{{BaseURI}}/v1/contacts/{{id}}}"
+								"url": "{{BaseURI}}/v1/contacts/{{non-existentID}}"
 							},
 							"response": []
 						}
