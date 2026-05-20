@@ -773,18 +773,18 @@
 							"response": []
 						},
 						{
-							"name": "DeleteContactById_Unauthorized Copy",
+							"name": "DeleteContactById_BadRequest",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"id": "bec23e84-10e1-4ed3-ab4a-2c591e846212",
 										"exec": [
-											"pm.test(\"Status code is 401\", function () {\r",
-											"    pm.response.to.have.status(401);\r",
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
 											"});\r",
-											"pm.test(\"Body matches string: Unauthorized\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Unauthorized\");\r",
+											"pm.test(\"Body matches string: Bad Request \", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Bad Request\");\r",
 											"});"
 										],
 										"type": "text/javascript",
@@ -796,8 +796,12 @@
 									"listen": "prerequest",
 									"script": {
 										"id": "f5c1c9f7-83c2-4a3b-8a21-9d97cffe491d",
-										"exec": [],
-										"type": "text/javascript"
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
 									}
 								}
 							],
@@ -810,11 +814,61 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTR",
+										"value": "{{token}}",
 										"type": "text"
 									}
 								],
-								"url": "{{BaseURI}}/v1/contacts/{id}"
+								"url": "{{BaseURI}}/v1/contacts/{{id}}}"
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteContactById_ ContactNotFound",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bec23e84-10e1-4ed3-ab4a-2c591e846212",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Body matches string: Bad Request \", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Bad Request\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "f5c1c9f7-83c2-4a3b-8a21-9d97cffe491d",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "f02d313c-4b83-40d2-88aa-09353a917928",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": "{{BaseURI}}/v1/contacts/{{id}}}"
 							},
 							"response": []
 						}
