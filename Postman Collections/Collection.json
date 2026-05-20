@@ -823,18 +823,18 @@
 							"response": []
 						},
 						{
-							"name": "DeleteContactById_ ContactNotFound",
+							"name": "DeleteAllContacts_Unauthorized",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"id": "bec23e84-10e1-4ed3-ab4a-2c591e846212",
 										"exec": [
-											"pm.test(\"Status code is 404\", function () {\r",
-											"    pm.response.to.have.status(404);\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
 											"});\r",
-											"pm.test(\"Body matches string: Not Found\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Not Found\");\r",
+											"pm.test(\"Body matches string: Unauthorized\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Unauthorized\");\r",
 											"});"
 										],
 										"type": "text/javascript",
@@ -864,11 +864,11 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "{{token}}",
+										"value": "",
 										"type": "text"
 									}
 								],
-								"url": "{{BaseURI}}/v1/contacts/{{non-existentID}}"
+								"url": "{{BaseURI}}/v1/contacts/{{id}}"
 							},
 							"response": []
 						}
